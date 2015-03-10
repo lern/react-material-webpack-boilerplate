@@ -2,7 +2,8 @@ var path               = require('path'),
     webpack            = require('webpack'),
     ExtractTextPlugin  = require('extract-text-webpack-plugin'),
     loadersByExtension = require('./config/loadersByExtension'),
-    joinEntry          = require('./config/joinEntry');
+    joinEntry          = require('./config/joinEntry'),
+    fs                 = require('fs');
 
 module.exports = function(options) {
   var entry = {
@@ -73,7 +74,10 @@ module.exports = function(options) {
             exclude: excludeFromStats
           });
           jsonStats.publicPath = publicPath;
-          require('fs').writeFileSync(path.join(__dirname, 'build', 'stats.json'), JSON.stringify(jsonStats));
+
+          var dir = path.join(__dirname, 'build');
+          if (!fs.existsSync(dir)) fs.mkdirSync(dir);
+          fs.writeFileSync(path.join(__dirname, 'build', 'stats.json'), JSON.stringify(jsonStats));
         });
       }
     },
