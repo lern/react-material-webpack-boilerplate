@@ -7,7 +7,7 @@ It is a boilerplate for quickly starting React/Webpack/MaterialUI projects. It f
 The main differences from the original repo are:
 
 - Data layer has been stripped out (not needed for static sites).
-- Integrated Material UI [callemall/material-ui](https://github.com/callemall/material-ui).
+- Integrated Material UI ([callemall/material-ui](https://github.com/callemall/material-ui)).
 - Created a basic Material UI project with site navigation and a couple of sample pages.
 
 
