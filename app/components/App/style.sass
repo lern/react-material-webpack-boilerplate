@@ -1,0 +1,26 @@
+@import './constants'
+@import './materialUi'
+@import url("https://fonts.googleapis.com/css?family=Roboto:500,300,700,400")
+
+$fontfamily : 'RobotoDraft', 'Roboto', 'Helvetica Neue', Helvetica Neue, Helvetica, Arial, sans-serif
+
+html, body
+  margin: 0
+  padding: 0
+  height: 100%
+
+body
+  font: 14px/20px $fontfamily
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  color: $grey-900
+
+p
+  font-size: 14px
+  line-height: 24px
+  color: $grey-900
+
+.pageContent
+  max-width: $pageWidth
+  margin: 0 auto
+  padding: 70px 20px
