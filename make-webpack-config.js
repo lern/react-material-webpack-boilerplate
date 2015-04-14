@@ -28,11 +28,11 @@ module.exports = function(options) {
     'md|markdown': ['html-loader', 'markdown-loader']
   };
   var stylesheetLoaders = {
-    'css': 'css-loader',
-    'less': 'css-loader!less-loader',
-    'styl': 'css-loader!stylus-loader',
-    'scss': 'css!sass',
-    'sass': 'css!sass?indentedSyntax=sass',
+    'css': 'css-loader!autoprefixer-loader',
+    'less': 'css-loader!autoprefixer-loader!less-loader',
+    'styl': 'css-loader!autoprefixer-loader!stylus-loader',
+    'scss': 'css!autoprefixer-loader!sass',
+    'sass': 'css!autoprefixer-loader!sass?indentedSyntax=sass'
   };
   var additionalLoaders = [
     // { test: /some-reg-exp$/, loader: 'any-loader' }
