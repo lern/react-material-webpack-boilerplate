@@ -14,10 +14,10 @@ module.exports = function(options) {
     'coffee': 'coffee-redux-loader',
     'jsx': options.hotComponents ? ['react-hot-loader', 'jsx-loader?harmony'] : 'jsx-loader?harmony',
     'json': 'json-loader',
-    // 'js': {
-      // loader: '6to5-loader',
-      // include: path.join(__dirname, 'app')
-    // },
+    'js': {
+      loader: 'babel-loader',
+      include: path.join(__dirname, 'app')
+    },
     'json5': 'json5-loader',
     'txt': 'raw-loader',
     'png|jpg|jpeg|gif|svg': 'url-loader?limit=10000',
