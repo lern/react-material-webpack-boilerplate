@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = function loadersByExtension(obj) {
   var loaders = [];
   var extensions = Object.keys(obj).map(function(key) {

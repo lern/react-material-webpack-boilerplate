@@ -1,3 +1,5 @@
+'use strict';
+
 var React        = require('react'),
     RouteHandler = require('react-router').RouteHandler,
     TopNav       = require('../TopNav'),

@@ -1,3 +1,5 @@
+'use strict';
+
 // Helper function for merging webpack entries
 module.exports = function joinEntry(current) {
   var args = Array.prototype.slice.call(arguments, 1);

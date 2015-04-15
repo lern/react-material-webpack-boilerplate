@@ -1,3 +1,5 @@
+'use strict';
+
 var React                = require('react'),
     Router               = require('react-router'),
     routes               = require('../app/routes'),
