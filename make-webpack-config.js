@@ -12,7 +12,7 @@ module.exports = function(options) {
   };
   var loaders = {
     'coffee': 'coffee-redux-loader',
-    'jsx': options.hotComponents ? ['react-hot-loader', 'jsx-loader?harmony'] : 'jsx-loader?harmony',
+    'jsx': options.hotComponents ? ['react-hot-loader', 'babel-loader'] : 'babel-loader',
     'json': 'json-loader',
     'js': {
       loader: 'babel-loader',
@@ -31,8 +31,8 @@ module.exports = function(options) {
     'css': 'css-loader!autoprefixer-loader',
     'less': 'css-loader!autoprefixer-loader!less-loader',
     'styl': 'css-loader!autoprefixer-loader!stylus-loader',
-    'scss': 'css!autoprefixer-loader!sass',
-    'sass': 'css!autoprefixer-loader!sass?indentedSyntax=sass'
+    'scss': 'css-loader!autoprefixer-loader!sass',
+    'sass': 'css-loader!autoprefixer-loader!sass?indentedSyntax=sass'
   };
   var additionalLoaders = [
     // { test: /some-reg-exp$/, loader: 'any-loader' }

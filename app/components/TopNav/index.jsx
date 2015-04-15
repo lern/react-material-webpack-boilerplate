@@ -9,7 +9,7 @@ require('./style');
 
 module.exports = React.createClass({
   render: function() {
-    menuButton = <IconButton onClick={this.props.onMenuIconButtonTouch}>
+    var menuButton = <IconButton onClick={this.props.onMenuIconButtonTouch}>
       <FontIcon className='menu-icon icon-navigation-white icon-navigation-white-ic_menu_white_24dp' />
     </IconButton>
 

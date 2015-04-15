@@ -1,5 +1,5 @@
 var React        = require('react'),
-    RouteHandler = require('react-router').RouteHandler
+    RouteHandler = require('react-router').RouteHandler,
     TopNav       = require('../TopNav'),
     SideNav      = require('../SideNav');
 
