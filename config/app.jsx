@@ -6,7 +6,7 @@ var React                = require('react'),
     injectTapEventPlugin = require('react-tap-event-plugin');
 
 // react-router handles location
-Router.run(routes, Router.HistoryLocation, function(Application) {
+Router.run(routes, Router.HistoryLocation, function(Application, state) {
 
   injectTapEventPlugin();
 

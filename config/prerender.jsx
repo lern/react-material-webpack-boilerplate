@@ -8,7 +8,7 @@ var React                = require('react'),
 
 module.exports = function(path, scriptUrl, styleUrl, commonsUrl, callback) {
   // run the path thought react-router
-  Router.run(routes, path, function(Application) {
+  Router.run(routes, path, function(Application, state) {
     injectTapEventPlugin();
 
     // prerender the application
