@@ -2,7 +2,8 @@
   "parser": "babel-eslint",
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "mocha": true
   },
   "plugins": [
     "react"
@@ -24,6 +25,11 @@
       }
     }],
     "no-mixed-requires": 0,
-    "no-underscore-dangle": 0
+    "no-underscore-dangle": 0,
+    "space-unary-ops": [2, {
+      "words": false,
+      "nonwords": false
+    }],
+    "key-spacing": 0
   }
 }
