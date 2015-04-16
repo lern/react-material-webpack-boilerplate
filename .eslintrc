@@ -1,0 +1,25 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "strict": [2, "global"],
+    "quotes": [1, "single", "avoid-escape"],
+    "curly": [2, "multi-line"],
+    "space-after-keywords": [2, "always"],
+    "no-use-before-define": [2, "nofunc"],
+    "no-shadow": 0,
+    "no-multi-spaces": [1, {
+      "exceptions": {
+        "VariableDeclarator": true
+      }
+    }],
+    "no-mixed-requires": 0,
+    "no-underscore-dangle": 0
+  }
+}
