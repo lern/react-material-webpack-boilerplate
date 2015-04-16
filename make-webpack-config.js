@@ -4,12 +4,11 @@ var path               = require('path'),
     webpack            = require('webpack'),
     ExtractTextPlugin  = require('extract-text-webpack-plugin'),
     loadersByExtension = require('./config/loadersByExtension'),
-    joinEntry          = require('./config/joinEntry'),
     fs                 = require('fs');
 
 module.exports = function(options) {
   var entry = {
-    main: reactEntry('main'),
+    main: reactEntry('main')
     // second: reactEntry('second')
   };
   var loaders = {
@@ -33,12 +32,9 @@ module.exports = function(options) {
     'css': 'css-loader!autoprefixer-loader',
     'less': 'css-loader!autoprefixer-loader!less-loader',
     'styl': 'css-loader!autoprefixer-loader!stylus-loader',
-    'scss': 'css-loader!autoprefixer-loader!sass',
-    'sass': 'css-loader!autoprefixer-loader!sass?indentedSyntax=sass'
+    'scss': 'css-loader!autoprefixer-loader!sass-loader',
+    'sass': 'css-loader!autoprefixer-loader!sass-loader?indentedSyntax'
   };
-  var additionalLoaders = [
-    // { test: /some-reg-exp$/, loader: 'any-loader' }
-  ];
   var alias = {
 
   };
@@ -69,7 +65,7 @@ module.exports = function(options) {
   ];
   var plugins = [
     function() {
-      if(!options.prerender) {
+      if (!options.prerender) {
         this.plugin('done', function(stats) {
           var jsonStats = stats.toJson({
             chunkModules: true,
@@ -86,7 +82,7 @@ module.exports = function(options) {
     new webpack.PrefetchPlugin('react'),
     new webpack.PrefetchPlugin('react/lib/ReactComponentBrowserEnvironment')
   ];
-  if(options.prerender) {
+  if (options.prerender) {
     aliasLoader['react-proxy$'] = 'react-proxy/unavailable';
     externals.push(
       /^react(\/.*)?$/,
@@ -96,7 +92,7 @@ module.exports = function(options) {
     );
     plugins.push(new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }));
   }
-  if(options.commonsChunk) {
+  if (options.commonsChunk) {
     plugins.push(new webpack.optimize.CommonsChunkPlugin('commons', 'commons.js' + (options.longTermCaching && !options.prerender ? '?[chunkhash]' : '')));
   }
 
@@ -106,19 +102,19 @@ module.exports = function(options) {
   }
   Object.keys(stylesheetLoaders).forEach(function(ext) {
     var loaders = stylesheetLoaders[ext];
-    if(Array.isArray(loaders)) loaders = loaders.join('!');
-    if(options.prerender) {
+    if (Array.isArray(loaders)) loaders = loaders.join('!');
+    if (options.prerender) {
       stylesheetLoaders[ext] = 'null-loader';
-    } else if(options.separateStylesheet) {
+    } else if (options.separateStylesheet) {
       stylesheetLoaders[ext] = ExtractTextPlugin.extract('style-loader', loaders);
     } else {
       stylesheetLoaders[ext] = 'style-loader!' + loaders;
     }
   });
-  if(options.separateStylesheet && !options.prerender) {
+  if (options.separateStylesheet && !options.prerender) {
     plugins.push(new ExtractTextPlugin('[name].css' + (options.longTermCaching ? '?[contenthash]' : '')));
   }
-  if(options.minimize) {
+  if (options.minimize) {
     plugins.push(
       new webpack.optimize.UglifyJsPlugin(),
       new webpack.optimize.DedupePlugin(),

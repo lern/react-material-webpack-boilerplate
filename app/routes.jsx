@@ -6,8 +6,9 @@ var React        = require('react'),
     DefaultRoute = Router.DefaultRoute;
 
 // polyfill
-if(!Object.assign)
+if (!Object.assign) {
   Object.assign = React.__spread;
+}
 
 // export routes
 module.exports = (

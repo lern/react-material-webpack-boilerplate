@@ -2,7 +2,7 @@
 
 module.exports = function loadersByExtension(obj) {
   var loaders = [];
-  var extensions = Object.keys(obj).map(function(key) {
+  Object.keys(obj).map(function(key) {
     return key.split('|');
   }).reduce(function(arr, a) {
     arr.push.apply(arr, a);
@@ -16,9 +16,9 @@ module.exports = function loadersByExtension(obj) {
       test: extsToRegExp(exts),
       loaders: value
     };
-    if(Array.isArray(value)) {
+    if (Array.isArray(value)) {
       entry.loaders = value;
-    } else if(typeof value === 'string') {
+    } else if (typeof value === 'string') {
       entry.loader = value;
     } else {
       Object.keys(value).forEach(function(key) {
