@@ -45,7 +45,7 @@ module.exports = function(options) {
 
   ];
   var modulesDirectories = ['web_modules', 'node_modules'];
-  var extensions = ['', '.web.js', '.js', '.jsx', '.sass', '.css'];
+  var extensions = ['', '.web.js', '.js', '.jsx', '.sass', '.scss', '.css'];
   var fallbacks = ['node_modules/material-ui-sass/material-ui/material-design-fonticons'];
   var root = path.join(__dirname, 'app');
   var publicPath = options.devServer ?
