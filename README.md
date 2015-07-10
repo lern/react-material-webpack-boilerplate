@@ -46,7 +46,7 @@ npm run build
 npm run start
 
 # open this url in your browser
-http://localhost:80/
+http://localhost:8080/
 ```
 
 
